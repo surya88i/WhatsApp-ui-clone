@@ -9,7 +9,9 @@ class _StatusScreenState extends State<StatusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Row(
             children: <Widget>[
