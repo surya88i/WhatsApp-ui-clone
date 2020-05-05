@@ -57,7 +57,10 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
               floating: true,
               pinned: true,
               snap: true,
-              expandedHeight: 95,
+              elevation: 0.0,
+              flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.parallax,
+              ),
               forceElevated: innerScrollView,
               actions: tabController.index == 0
                   ? null
@@ -126,33 +129,33 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                   ),
                 )
               : tabController.index == 2
-                  ? Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        SizedBox(
-                          height: 45.0,
-                          width: 45.0,
-                          child: FloatingActionButton(
+                  ? Flex(
+                    direction: Axis.vertical,
+                    mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          FloatingActionButton(
                             backgroundColor: Colors.white,
+                            mini: true,
+                            heroTag: const DefaultShaderWarmUp(),
                             onPressed: () {},
                             child: Icon(
                               Icons.edit,
                               color: Colors.blueGrey,
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        FloatingActionButton(
-                          onPressed: () {},
-                          child: Icon(
-                            Icons.camera_alt,
-                            color: Colors.white,
+                          SizedBox(
+                            height: 4,
                           ),
-                        ),
-                      ],
-                    )
+                          FloatingActionButton(
+                            onPressed: () {},
+                            child: Icon(
+                              Icons.camera_alt,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      )
                   : FloatingActionButton(
                       onPressed: () {},
                       child: Icon(
