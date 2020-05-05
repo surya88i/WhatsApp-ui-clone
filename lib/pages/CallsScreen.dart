@@ -10,6 +10,7 @@ class _CallScreenState extends State<CallScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
+        scrollDirection: Axis.vertical,
          padding: EdgeInsets.zero,
         itemCount: callData.length,
         itemBuilder: (context,index){
